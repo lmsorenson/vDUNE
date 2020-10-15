@@ -1,0 +1,37 @@
+language: cpp
+compiler: gcc
+dist: trusty
+
+#env:
+#  global:
+#    secure: {"lots-of-seemingly-random-characters"}
+
+before_install:
+  # C++14
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install: 
+  # Get my folder
+  - my_github=${PWD##*/}  
+  # C++14
+  - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+  # set credentials
+  - git config --global user.email "${GH_EMAIL}"
+  - git config --global user.name "${GH_USERNAME}"
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+  # Build Unreal Engine 4 in a folder at the same depth, must be user with a Epic Games account connect to a GitHub
+  - cd ..
+  - git clone https://github.com/EpicGames/UnrealEngine.git
+  - cd UnrealEngine
+  - ./Setup.sh
+  - ./GenerateProjectFiles.sh
+  - make
+  - cd $my_github
+
+script: 
+  - qmake
+  - make
+  - ./travis_qmake_gcc_cpp14_ue4
