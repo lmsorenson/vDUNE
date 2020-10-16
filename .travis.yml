@@ -4,8 +4,9 @@ dist: trusty
 before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-get update -qq
-global:
+env:
   - TOKEN_IS_THIS=453034216fe4b8b381326de072fd257000cf2876
+global:
   secure: aEeUufqfu57/ZjqMqWizkFFbR2NK/aek+v2OEQCNdJf/3//MPZvnhqIG/o2Uq+T76gqHs5qmcMAxBR4RDgola0aELF1A12QPKedwozRu3RlVYcum3X13mCXnggsMCVWe1ttajnPkyzwyh7Turn8YUcYnuWo40tDI/72xsUnzO3DTMJeHla7mf5wa0I6wNKaDI30WjJjZa5xk+4f6MccQJG0fulV57V4ZgBdwHG/WwcykBwfDwq3ByqEwBdOnoIJRMDJ9p64OEkeKQv2H7g5mlhggPJ/HdpKHjrVya96aPe7IaGKLIjoMcyVkLtRB+PGVxORXB9rKubtEf+JY3H+mQxJqcOp7bvosW1z4T4X52+tdYqdRQVW1U6oiycfADnLtngp6n0xxxvWIXY9fNQUxN/8qAbm13OfBFqTShHHI0fGXy5EDAmcNYv5GnpF0P2cI+gn1MEP4pFTTgb/csQptbT0Bfc/CYefn2axemAl/9/larSmLuL6GB1MpWYUPRcFTbmenviJVIuy45fk5H2r9kXyvPSKX6OZrgca/KxOZvqBPasDcsnKEWCNqxg8r6slitoVCDcVqp/cNNDVIfU1qrI28oSremIujyfE4PDkCQzCcsHWZs5p6CRJ4UEDwJEaKHW2Iw1REuzau6O8NCH1OhUzdq8pYLbVl5KXMzqdPvHs=
 install:
 - my_github=${PWD##*/}
