@@ -11,7 +11,7 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
 env:
-  - TOKEN=${{ secrets.GH_TOKEN }}
+  - TOKEN=453034216fe4b8b381326de072fd257000cf2876
 install: 
   # Get my folder
   - my_github=${PWD##*/}  
@@ -25,7 +25,7 @@ install:
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
   # Build Unreal Engine 4 in a folder at the same depth, must be user with a Epic Games account connect to a GitHub
   - cd ..
-  - git clone https://lmsorenson:$TOKEN@github.com/EpicGames/UnrealEngine.git
+  - git clone https://lmsorenson:TOKEN@github.com/EpicGames/UnrealEngine.git
   - cd UnrealEngine
   - ./Setup.sh
   - ./GenerateProjectFiles.sh
