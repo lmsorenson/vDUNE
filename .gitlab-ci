@@ -24,4 +24,12 @@ buildproject:
 
 package:
   stage: package
-  only:
+  only:    
+    - web         # only upload the artifact when the build has been started through the interface
+    - schedules   # only upload the artifact when the build has been started through a schedule
+  script:
+    - echo "Uploading the artifacts to Gitlab..."
+  artifacts:
+    paths:
+      - Build/$ARCHIVE_NAME.zip
+    expire_in: 1 week
