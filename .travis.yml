@@ -10,7 +10,8 @@ before_install:
   # C++14
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
-
+env:
+  - TOKEN=${{ secrets.GH_TOKEN }}
 install: 
   # Get my folder
   - my_github=${PWD##*/}  
